@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainfall Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            background-image: url('/static/images/background.png');
+            
+            /* Adjust background properties as needed */
+            background-size: 100%;
+
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 400px;
+            padding: 12px;
+            /* Increased padding for larger input cells */
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #4CAF50;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            /* Increased padding for larger button */
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: skyblue;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Rainfall Prediction</h2>
+    <form id="rainfallForm">
+        <label for="month">Month:</label>
+        <select id="month" name="month">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+
+        <label for="minTemp">Min Temp 0 C:</label>
+        <input type="number" id="minTemp" name="minTemp" min="0" max="100" required>
+
+        <label for="humidity">Relative Humidity %:</label>
+        <input type="number" id="humidity" name="humidity" min="0" max="100" required>
+
+        <label for="windSpeed">Wind Speed (m/s):</label>
+        <input type="number" id="windSpeed" name="windSpeed" required>
+
+        <label for="cloudCoverage">Cloud Coverage %:</label>
+        <input type="number" id="cloudCoverage" name="cloudCoverage" min="0" max="100" required>
+
+        <label for="sunshineHours">Bright Sunshine (Hours):</label>
+        <input type="number" id="sunshineHours" name="sunshineHours" min="0" max="24" required>
+
+        <label for="stationNumber">Station Number:</label>
+        <select id="stationNumber" name="stationNumber">
+            <option value="41858">41858</option>
+            <option value="41859">41859</option>
+            <option value="41863">41863</option>
+            <option value="41883">41883</option>
+            <option value="41886">41886</option>
+            <option value="41891">41891</option>
+            <option value="41895">41895</option>
+            <option value="41907">41907</option>
+            <option value="41909">41909</option>
+            <option value="41915">41915</option>
+            <option value="41923">41923</option>
+            <option value="41926">41926</option>
+            <option value="41929">41929</option>
+            <option value="41933">41933</option>
+            <option value="41936">41936</option>
+            <option value="41939">41939</option>
+            <option value="41941">41941</option>
+            <option value="41943">41943</option>
+            <option value="41946">41946</option>
+            <option value="41947">41947</option>
+            <option value="41950">41950</option>
+            <option value="41951">41951</option>
+            <option value="41953">41953</option>
+            <option value="41958">41958</option>
+            <option value="41960">41960</option>
+            <option value="41963">41963</option>
+            <option value="41964">41964</option>
+            <option value="41965">41965</option>
+            <option value="41966">41966</option>
+            <option value="41977">41977</option>
+            <option value="41978">41978</option>
+            <option value="41984">41984</option>
+            <option value="41989">41989</option>
+            <option value="41992">41992</option>
+            <option value="41998">41998</option>
+            <!-- Add other station numbers as options -->
+        </select>
+
+        <button type="button" onclick="predict_rainfall()">Predict Rainfall</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function predict_rainfall(rfr) {
+            // Get user input values
+            var month = document.getElementById("month").value;
+            var minTemp = document.getElementById("minTemp").value;
+            var humidity = document.getElementById("humidity").value;
+            var windSpeed = document.getElementById("windSpeed").value;
+            var cloudCoverage = document.getElementById("cloudCoverage").value;
+            var sunshineHours = document.getElementById("sunshineHours").value;
+            var stationNumber = document.getElementById("stationNumber").value;
+
+            // Validate input (add more validation if needed)
+            if (minTemp < 0 || minTemp > 100 || humidity < 0 || humidity > 100 || windSpeed <= 0 || cloudCoverage < 0 || cloudCoverage > 100 || sunshineHours < 0 || sunshineHours > 24) {
+                alert("Please enter valid values for Min Temp, humidity, wind speed, cloud coverage, and sunshine hours.");
+                return;
+            }
+
+            // Make AJAX request or use your existing code to send data to the server for prediction
+            // For simplicity, I'll just alert the values
+            var userInput = {
+                'Month': month,
+                'Min Temp 0 C': minTemp,
+                'Relative Humidity %': humidity,
+                'Wind Speed (m/s)': windSpeed,
+                'Cloud Coverage %': cloudCoverage,
+                'Bright Sunshine (Hours)': sunshineHours,
+                'Station Number': stationNumber
+            };
+
+            // Assuming the predict_rainfall function is defined in the server-side code
+            // Adjust this part based on how you handle predictions on the server
+            predict_rainfall_on_server(rfr, userInput);
+        }
+
+
+        function predict_rainfall_on_server(rfr, userInput) {
+            // Get user input values
+            var month = document.getElementById("month").value;
+            var minTemp = document.getElementById("minTemp").value;
+            var humidity = document.getElementById("humidity").value;
+            var windSpeed = document.getElementById("windSpeed").value;
+            var cloudCoverage = document.getElementById("cloudCoverage").value;
+            var sunshineHours = document.getElementById("sunshineHours").value;
+            var stationNumber = document.getElementById("stationNumber").value;
+
+            // Validate input (add more validation if needed)
+            if (minTemp < 0 || minTemp > 100 || humidity < 0 || humidity > 100 || windSpeed <= 0 || cloudCoverage < 0 || cloudCoverage > 100 || sunshineHours < 0 || sunshineHours > 24) {
+                alert("Please enter valid values for Min Temp, humidity, wind speed, cloud coverage, and sunshine hours.");
+                return;
+            }
+
+            // Make AJAX request
+            var xhr = new XMLHttpRequest();
+            var url = "/predict";  // Assuming your Flask route for prediction is "/predict"
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Data to be sent to the server
+            var data = JSON.stringify({
+                'Month': month,
+                'Min Temp 0 C': minTemp,
+                'Relative Humidity %': humidity,
+                'Wind Speed (m/s)': windSpeed,
+                'Cloud Coverage %': cloudCoverage,
+                'Bright Sunshine (Hours)': sunshineHours,
+                'Station Number': stationNumber
+            });
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Parse JSON response
+                    var response = JSON.parse(xhr.responseText);
+                    // Extract the predicted rainfall value
+                    var predictedRainfall = response.predicted_rainfall;
+                    // Update the result in the HTML page
+                    var resultElement = document.getElementById("result");
+                    resultElement.innerHTML = "Predicted Rainfall: " + predictedRainfall + " mm";
+                    resultElement.style.display = "block"; // Show the result box
+                }
+            };
+
+            // Send the data to the server
+            xhr.send(data);
+        }
+    </script>
+
+
+</body>
+
+</html>
