@@ -9,6 +9,8 @@ This Project is mainly based on Rainfall Prediction focusing on Bangladesh. It u
 3. HighCharts: Utilized for data visualization, enhancing the user interface.
 4. Jupyter Notebook: The interactive environment for developing and presenting the source code.
 5. Joblib: Used for saving and loading machine learning models efficiently.
+6. Fask: Used Flask.
+7. Html, CSS: For making the web Entire face.
 
 # Dataset:
 The dataset encompasses weather station and year-wise monthly rainfall data for Bangladesh. The data spans 46 years (1970 to 2016) and includes daily and monthly rainfall data. Relevant columns include Station, Year, Month, and Day (for daily data), among others.
@@ -19,13 +21,13 @@ The dataset encompasses weather station and year-wise monthly rainfall data for 
 3. Random Forest Model: Employed for ensemble learning, combining multiple decision trees for enhanced accuracy.
 
 # Usage:
-Users can interact with the project by accessing the provided web application at http://ml.bigalogy.com/. Additionally, the Jupyter Notebook source code, Rainfall_Prediction_Source_Code.ipynb, guides users through the data analysis, preprocessing, and model training process.
+Users can interact with the project by accessing the provided web application(Locally hosted). Additionally, the Jupyter Notebook source code, Rainfall_Prediction_Source_Code.ipynb, guides users through the data analysis, preprocessing, and model training process.
 
 # Features:
 
-Utilizes machine learning models for rainfall prediction in Bangladesh.
-Offers a web-based application for interactive exploration of rainfall predictions.
-Demonstrates the use of Apache Spark and Scala for large-scale machine learning.
+1. Utilizes machine learning models for rainfall prediction in Bangladesh.
+2. Offers a web-based application for interactive exploration of rainfall predictions.
+3. Demonstrates the use of Apache Spark and Scala for large-scale machine learning.
 
 # Conclusion:
 This project significantly contributes to rainfall prediction efforts in Bangladesh by applying machine learning models to historical weather data. The predictive models, showcased in the web application, exhibit enhanced accuracy over time, emphasizing the project's success in addressing the vital need for accurate rainfall forecasts in the region. The inclusion of multiple machine learning algorithms and the utilization of Apache Spark showcase the versatility and robustness of the implemented solution.
