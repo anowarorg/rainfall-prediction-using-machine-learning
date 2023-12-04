@@ -26,4 +26,4 @@ def predict_rainfall_endpoint():
     return jsonify({'predicted_rainfall': rainfall_prediction[0]})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=5000)
