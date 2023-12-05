@@ -29,5 +29,15 @@ Users can interact with the project by accessing the provided web application(Lo
 2. Offers a web-based application for interactive exploration of rainfall predictions.
 3. Demonstrates the use of Apache Spark and Scala for large-scale machine learning.
 
+# Run Commnads for Running the App:
+
+1. python -m venv venv
+2. python -m flask --app .\app.py run
+3. .\venv\Scripts\activate.bat
+4. python -m pip install --upgrade pip
+5. python -m pip install flask
+6. python -m flask run
+7. python -m pip3 freeze >> requirements.txt
+
 # Conclusion:
 This project significantly contributes to rainfall prediction efforts in Bangladesh by applying machine learning models to historical weather data. The predictive models, showcased in the web application, exhibit enhanced accuracy over time, emphasizing the project's success in addressing the vital need for accurate rainfall forecasts in the region. The inclusion of multiple machine learning algorithms and the utilization of Apache Spark showcase the versatility and robustness of the implemented solution.
