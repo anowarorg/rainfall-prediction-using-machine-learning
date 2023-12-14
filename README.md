@@ -23,6 +23,10 @@ The dataset encompasses weather station and year-wise monthly rainfall data for 
 # Usage:
 Users can interact with the project by accessing the provided web application(Locally hosted). Additionally, the Jupyter Notebook source code, Rainfall_Prediction_Source_Code.ipynb, guides users through the data analysis, preprocessing, and model training process.
 
+## User Interface
+A User interface was implemented using Flask in app.py. This allows users to interact with the predictive models and obtain salary predictions based on provided input.
+![rainfall_prediction_01](https://github.com/anowarorg/cybersecurity-salary-prediction-using-Apache-spark/assets/103601765/4c85ba3f-ee0c-4565-8fe1-ca2c5974e0e6)
+
 # Features:
 
 1. Utilizes machine learning models for rainfall prediction in Bangladesh.
